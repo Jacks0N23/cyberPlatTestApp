@@ -17,17 +17,17 @@ import com.jassdev.jackson.cyberplattestapp.R;
 import com.jassdev.jackson.cyberplattestapp.UI.ArticleActivity;
 import com.jassdev.jackson.cyberplattestapp.Utils.Constants;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class FeedRecyclerViewAdapter extends RecyclerView.Adapter<FeedViewHolder> {
 
     private final String TAG = FeedRecyclerViewAdapter.class.getSimpleName();
     private Activity activity;
-    private ArrayList<FeedItem> feedItemArrayList;
+    private List<FeedItem> feedItemArrayList;
 
 
-    public FeedRecyclerViewAdapter(ArrayList<FeedItem> feedItemArrayList, Activity activity) {
+    public FeedRecyclerViewAdapter(List<FeedItem> feedItemArrayList, Activity activity) {
         this.feedItemArrayList = feedItemArrayList;
         this.activity = activity;
     }

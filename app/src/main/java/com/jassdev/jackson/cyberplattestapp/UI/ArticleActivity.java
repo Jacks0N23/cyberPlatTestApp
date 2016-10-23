@@ -33,6 +33,7 @@ public class ArticleActivity extends BaseActivity implements IArticleView {
         binding.article.loadUrl(url);
     }
 
+    //нужно чтоббы не перекидывало в хром, а открывалось в приложении
     private class ArticleWebViewClient extends WebViewClient {
 
         @Override

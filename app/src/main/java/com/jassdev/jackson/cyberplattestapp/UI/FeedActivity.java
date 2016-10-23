@@ -18,12 +18,23 @@ public class FeedActivity extends BaseActivity implements IFeedView, SwipeRefres
 
     ActivityMainBinding binding;
     FeedPresenterImpl presenter;
+    FeedItem item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
         presenter = new FeedPresenterImpl(this, this); //first this is IFeedView, Second is BaseActivity
+
+        /**
+         * uncomment for DI
+         AppComponent component = DaggerTestApp.component(this);
+         component.inject(this);
+
+         item = component.testsItems();
+
+         **/
 
         binding.feedSwipeRefresh.setOnRefreshListener(this);
         binding.feedSwipeRefresh.setRefreshing(true);
@@ -33,10 +44,15 @@ public class FeedActivity extends BaseActivity implements IFeedView, SwipeRefres
 
     @Override
     public void onFeedLoadedSuccess(ArrayList<FeedItem> list) {
+        binding.feedSwipeRefresh.setRefreshing(false);
         binding.feedRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.feedRecyclerView.setHasFixedSize(true);
         binding.feedRecyclerView.setAdapter(new FeedRecyclerViewAdapter(list, this));
-        binding.feedSwipeRefresh.setRefreshing(false);
+        /**
+         * uncomment for DI
+         binding.feedRecyclerView.setAdapter(new FeedRecyclerViewAdapter(Collections.singletonList(item), this));
+         **/
+
     }
 
     @Override

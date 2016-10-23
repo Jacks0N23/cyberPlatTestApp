@@ -1,7 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/article_coordinator_layout"
@@ -10,20 +8,6 @@
         android:background="?android:attr/colorBackground"
         android:fitsSystemWindows="true"
         tools:context=".Elements.Article.ArticleActivity">
-
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appbar_article"
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            android:fitsSystemWindows="true">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_article"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed" />
-        </android.support.design.widget.AppBarLayout>
 
         <WebView
             android:id="@+id/article"
